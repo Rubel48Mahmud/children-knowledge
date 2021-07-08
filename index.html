@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Children’s Knowledge</title> 
+<meta charset="UTF-8">
+<style type="text/css"> 
+*{box-sizing:border-box} 
+.main{width:99%;
+height:1200px;
+background:url("https://i.ibb.co/QCzKF58/images-24.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+border:5px solid #000;
+text-align:center;
+}
+
+table{text-align:center;
+width:100%;
+margin-top:50px
+}
+input{height:80px;
+font-size:40px; 
+text-align:center;
+font-weight:bold;
+color:#000;
+outline:none;
+border:5px solid black;
+box-shadow:5px 5px 10px gray;
+border-radius:8px;
+width:300px}
+
+table tr td{height:90px}
+
+button{width:60%;
+height:70px;
+font-weight:bold;
+font-size:35px;
+border-radius:10px;
+ouline:none;
+cursor:pointer;
+}
+bitton:acive{
+background:rgba(0,0,0,0.5)
+}
+#subBtn{background:green;
+color:#fff;
+border:5px 5px blue;
+box-shadow:3px 3px 6px #20B2AA;
+}
+
+#resetBtn{background:red;
+color:#fff;
+border:5px 5px #FF00FF;
+box-shadow:3px 3px 6px #FF00FF;
+}
+
+h1{font-size:50px;
+font-weight:bold;
+text-shadow:2px 2px 4px #fff}
+
+p{
+font-size:28px;
+font-weight:bold;
+display:inline;
+padding:5px;
+border-radius:5px;
+z-index:1;
+
+}
+.yess{
+background:#E6E6FA;
+color:blue;
+}
+.noo{
+background:#E6E6FA;
+color:red;
+
+}
+
+.inputBtn{
+width:20%;
+margin-top:20px
+}
+.inputBtn:active{
+background:green;
+border:5px solid #000;
+color:#fff
+}
+a{color:#000;
+text-decoration:none;
+cursor:pointer}
+
+
+</style>
+</head>
+<body onload="notice()">
+
+<div class="main">
+    <h1><a href="https://rubel48mahmud.github.io/termsOFUses/" action="blank">Children's knowledge.</a></h1>
+    <p id="yes" class="yes"></p><br>
+    <p id="no" class="no"></p>
+    
+    <table>
+      <tr>
+      <td><input id="rand1" type="number" disabled></td>
+      <td><h1>+</h1></td>
+      <td><input id="rand2" type="number" disabled></td>
+      </tr>
+      <td colspan="3"><input id="mynum" type="number" placeholder="Sum" disabled></td>
+      </tr>
+      <tr>
+      <td colspan="3"><button id="subBtn" onclick="subBtn()">Submit</button></td>
+      </tr>
+      <tr>
+      <td colspan="3"><button id="resetBtn" onclick="resetBtn()">Reset</button></td>
+      </tr>
+    </table>
+    
+    
+    
+    <button class="inputBtn" onclick="mybtnF(1)">1</button>
+    <button class="inputBtn" onclick="mybtnF(2)">2</button>
+    <button class="inputBtn" onclick="mybtnF(3)">3</button><br><br>
+    <button class="inputBtn" onclick="mybtnF(4)">4</button>
+    <button class="inputBtn" onclick="mybtnF(5)">5</button>
+    <button class="inputBtn" onclick="mybtnF(6)">6</button><br><br>
+    <button class="inputBtn" onclick="mybtnF(7)">7</button>
+    <button class="inputBtn" onclick="mybtnF(8)">8</button>
+    <button class="inputBtn" onclick="mybtnF(9)">9</button><br>
+    <button class="inputBtn" onclick="mybtnF(0)">0</button><br><br><br>
+    
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+var yes = document.getElementById("yes");
+var no = document.getElementById("no");
+var rand1 = document.getElementById("rand1");
+var rand2 = document.getElementById("rand2");
+var mynum = document.getElementById("mynum");
+
+
+function subBtn(){ 
+var sum = parseInt(rand1.value) + parseInt(rand2.value);
+
+if(rand1.value !=="" && rand2.value !=="" && mynum.value !==""){
+
+if(sum==mynum.value){
+yes.classList.add("yess");
+yes.innerHTML="Congratulations.! Your Answer Is Correct."
+}
+
+else{
+no.classList.add("noo");
+no.innerHTML="Opps..!Sorry Your Answer Is Incorrect."
+
+
+}
+
+}
+
+
+else{
+if(mynum.value==""){
+no.classList.add("noo");
+no.innerHTML="Please Enter Your Answer..!"
+}
+
+if(rand1.value=="" && rand2.value==""){
+no.classList.add("noo");
+no.innerHTML="Please Click The Reset Button..!"
+}
+
+}
+
+
+
+}
+function resetBtn(){
+var random1 = Math.floor(Math.random()*100);
+var random2 = Math.floor(Math.random()*100);
+
+rand1.value=random1;
+rand2.value=random2;
+yes.innerHTML="";
+no.innerHTML="";
+mynum.value="";
+yes.classList.remove("yess");
+no.classList.remove("noo");
+}
+
+
+function mybtnF(getNumber){
+
+var beforeValue = mynum.value;
+mynum.value=beforeValue+getNumber;
+
+
+}
+
+function notice(){
+
+alert("ব্যাবহারবিধি জানতে 'Children's Knowledge' লেখার উপর ক্লিক করবেন৷");
+
+}
+</script>
+</body>
+</html>
